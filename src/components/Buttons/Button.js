@@ -1,11 +1,15 @@
 import {View, Text} from 'react-native';
 import React from 'react';
+import {globalStyles} from '../../utils/globalStyles';
+import {AppColors} from '../../utils/AppColors';
 
-const Button = () => {
+const Button = ({onPress, children, title, ...props}) => {
   return (
-    <View>
-      <Text>Button</Text>
-    </View>
+    <TouchableOpacity onPress={onPress} style={[globalStyles.btn, props.style]}>
+      <Text heading="h3" color={AppColors.white}>
+        {title}
+      </Text>
+    </TouchableOpacity>
   );
 };
 
