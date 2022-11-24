@@ -2,7 +2,7 @@ import {View, Text} from 'react-native';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {SplashScreen} from '../screens';
+import {HomeScreen, SplashScreen} from '../screens';
 import TabNavigation from './TabNavigation';
 
 const Stack = createStackNavigator();

@@ -23,7 +23,7 @@ const screenOptions = {
   tabBarActiveTintColor: COLORS.tabBarActiveTintColor,
   tabBarShowLabel: false,
   tabBarStyle: {
-    backgroundColor: COLORS.MainbackgroundColor,
+    backgroundColor: COLORS.tabBackgroundColor,
     position: 'absolute',
     bottom: 25,
     right: 20,

@@ -18,6 +18,8 @@ const COLORS = {
   light: '#F3F4FB',
   BitCoin: '#f2a900',
   tabBarActiveTintColor: '#6aeb76',
+  tabBackgroundColor: '#1D3356',
+  cardColor: '#E9FFF8',
 };
 
 export default COLORS;
