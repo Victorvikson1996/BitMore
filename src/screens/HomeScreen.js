@@ -15,8 +15,16 @@ import {DATA} from '../components/Wallet/WalletContent';
 import {WalletCategory, WalletContent} from '../components/Wallet';
 import BdkRn from 'bdk-rn';
 import get from 'redux-actions/lib/utils/get';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const {width} = Dimensions.get('window');
+
+const shortenAddress = address => {
+  return `${address.slice(0, 6)}...${address.slice(
+    address.length - 4,
+    address.length,
+  )}`;
+};
 
 const Card = () => {
   const [mnemonic, setMnemonic] = useState('');
@@ -25,9 +33,13 @@ const Card = () => {
   const [address, setAddress] = useState('');
   const [displayText, setDisplayText] = useState('');
   const [balance, setBalance] = useState();
+  const [trasaction, setTransaction] = useState('');
+
+  let addr = address.length ? shortenAddress(address?.[0]) : 'Address';
 
   const getAddress = async () => {
     const {data} = await BdkRn.getNewAddress();
+    await AsyncStorage.setItem('@storage_Key', data);
     setAddress(data);
     setDisplayText(data);
   };
@@ -35,9 +47,14 @@ const Card = () => {
   const getBalance = async () => {
     await BdkRn.syncWallet();
     const {data} = await BdkRn.getBalance();
+    await AsyncStorage.setItem('@storage_Key', data);
     setBalance(data);
     console.log('BALANCE', data + `` + 'Sat');
     setDisplayText(JSON.stringify(data));
+  };
+
+  const getTxHistory = async () => {
+    const {data} = await BdkRn.getTransactions();
   };
 
   useEffect(() => {
@@ -50,7 +67,9 @@ const Card = () => {
       <View style={styles.balance}>
         <Text style={styles.blnTxt}>Balance</Text>
         <View style={styles.text}>
-          <Text style={styles.sats}>{balance ? balance : '0'} Sats</Text>
+          <Text selectable style={styles.sats}>
+            {balance ? balance : '0'} Sats
+          </Text>
         </View>
         <View style={{marginTop: 50, marginHorizontal: 20}}>
           <Text selectable style={styles.address}>

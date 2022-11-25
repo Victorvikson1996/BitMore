@@ -76,6 +76,7 @@ const WalletCategory = ({item, onPress}) => {
           width: 150,
           alignItems: 'center',
           marginHorizontal: 10,
+          left: 10,
         }}
         onPress={onPress}>
         <View
