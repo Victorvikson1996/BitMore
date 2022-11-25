@@ -31,6 +31,8 @@ const screenOptions = {
     elevation: 0,
     borderRadius: 15, // for android
     height: 90,
+    // borderTopWidth: 5,
+    borderTopColor: COLORS.tabBackgroundColor,
   },
 };
 
@@ -85,7 +87,7 @@ const TabNavigation = () => {
       <Tab.Screen
         options={_WalletIconOptions}
         component={LoginScreen}
-        name="LOGIN"
+        name="WALLET"
       />
       <Tab.Screen
         component={SendScreen}

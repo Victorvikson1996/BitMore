@@ -140,9 +140,9 @@ const styles = StyleSheet.create({
   },
   methodSection: {
     alignItems: 'center',
-    width: '90%',
+    width: '100%',
     marginTop: 10,
-    paddingHorizontal: 24,
+    paddingHorizontal: 20,
     paddingVertical: 10,
     borderColor: COLORS.tabBarActiveTintColor,
     // borderWidth: 2,

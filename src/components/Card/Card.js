@@ -42,39 +42,21 @@ const styles = StyleSheet.create({
     marginHorizontal: 25,
   },
 
-  details: {
-    height: 70,
-    width: '100%',
-    position: 'absolute',
-    backgroundColor: COLORS.white,
-    bottom: 0,
-    borderBottomEndRadius: 20,
-    borderBottomRightRadius: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-
-  cardBtn: {
-    width: 70,
-    height: 30,
-    backgroundColor: COLORS.black,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 8,
-  },
-  btn: {
-    height: 50,
-    width: 70,
-    backgroundColor: COLORS.black,
-    borderRadius: 8,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 40,
-  },
   balance: {},
   blnTxt: {},
   text: {},
   sats: {},
+
+  methodSection: {
+    alignItems: 'center',
+    width: '90%',
+    marginTop: 10,
+    paddingHorizontal: 24,
+    paddingVertical: 10,
+    borderColor: COLORS.tabBarActiveTintColor,
+    // borderWidth: 2,
+    // borderRadius: 10,
+  },
 });
 
 export default Card;
