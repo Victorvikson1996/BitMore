@@ -6,6 +6,7 @@ import {
   StyleSheet,
   FlatList,
   Dimensions,
+  ActivityIndicator,
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
 
@@ -16,6 +17,8 @@ import {WalletCategory, WalletContent} from '../components/Wallet';
 import BdkRn from 'bdk-rn';
 import get from 'redux-actions/lib/utils/get';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import bitcoin from 'bitcoin-units';
+import {Loader} from '../../src/Loader';
 
 const {width} = Dimensions.get('window');
 
@@ -33,9 +36,15 @@ const Card = () => {
   const [address, setAddress] = useState('');
   const [displayText, setDisplayText] = useState('');
   const [balance, setBalance] = useState();
+  const [loading, setLoading] = useState(true);
+
   const [trasaction, setTransaction] = useState('');
 
   let addr = address.length ? shortenAddress(address?.[0]) : 'Address';
+
+  const _bitcoin = bitcoin(balance, 'satoshi').to('BTC').toString();
+
+  let _bit = balance * 0.00000001;
 
   const getAddress = async () => {
     const {data} = await BdkRn.getNewAddress();
@@ -62,6 +71,8 @@ const Card = () => {
     getBalance();
   }, []);
 
+  const bal = 6688757;
+
   return (
     <View style={styles.card}>
       <View style={styles.balance}>
@@ -70,8 +81,13 @@ const Card = () => {
           <Text selectable style={styles.sats}>
             {balance ? balance : '0'} Sats
           </Text>
+          <Text selectable style={styles.btc}>
+            {/* {_bit.toFixed(6) ? _bit.toFixed(6) : '0'} BTC */}
+            {/* {_bitcoin} BTC */}
+            {bitcoin(balance, 'satoshi').to('BTC').toString()}
+          </Text>
         </View>
-        <View style={{marginTop: 50, marginHorizontal: 20}}>
+        <View style={{top: 20, marginHorizontal: 20}}>
           <Text selectable style={styles.address}>
             Address:{address ? address : ''}{' '}
           </Text>
@@ -88,6 +104,7 @@ const HomeScreen = ({route}) => {
   const [address, setAddress] = useState('');
   const [displayText, setDisplayText] = useState('');
   const [balance, setBalance] = useState();
+  const [loading, setLoading] = useState(true);
 
   const createWallet = async () => {
     const {data} = await BdkRn.createWallet({
@@ -100,13 +117,18 @@ const HomeScreen = ({route}) => {
 
   useEffect(() => {
     createWallet();
+    setLoading(false);
   }, []);
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.cardCon}>
-        <Card />
-      </View>
+      {loading ? (
+        <ActivityIndicator size="large" />
+      ) : (
+        <View style={styles.cardCon}>
+          <Card />
+        </View>
+      )}
       <View style={{flex: 1, margin: 10}}>
         <WalletCategory />
       </View>
@@ -156,6 +178,12 @@ const styles = StyleSheet.create({
     color: COLORS.MainbackgroundColor,
     fontSize: 25,
     fontWeight: '900',
+  },
+  btc: {
+    color: COLORS.MainbackgroundColor,
+    fontSize: 17,
+    fontWeight: '300',
+    left: 20,
   },
   address: {
     color: COLORS.MainbackgroundColor,

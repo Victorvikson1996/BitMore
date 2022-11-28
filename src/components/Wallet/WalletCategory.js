@@ -32,7 +32,7 @@ const WalletData = [
     icon: Icons.moneyBag,
     color: COLORS.tabBarActiveTintColor,
     backgroundColor: COLORS.MainbackgroundColor,
-    description: 'Sync Wallet',
+    description: 'Invest with Bitcoin',
   },
   {
     id: 4,
@@ -62,7 +62,7 @@ const WalletCategory = ({item, onPress}) => {
       if (item.id === 1) {
         Alert.alert('You Aleardy have a Bitcoin Address');
       } else if (item.id === 3) {
-        navigation.navigate('WALLET');
+        Alert.alert('Investment Portfolio Comming Soon!!!');
       } else if (item.id === 4) {
         navigation.navigate('SEND');
       } else if (item.id === 2) {

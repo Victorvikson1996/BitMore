@@ -30,9 +30,10 @@ const screenOptions = {
     left: 20,
     elevation: 0,
     borderRadius: 15, // for android
-    height: 90,
+    height: 80,
     // borderTopWidth: 5,
     borderTopColor: COLORS.tabBackgroundColor,
+    paddingBottom: 20,
   },
 };
 
