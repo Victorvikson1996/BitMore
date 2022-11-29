@@ -43,7 +43,7 @@ const Card = () => {
   let addr = address.length ? shortenAddress(address?.[0]) : 'Address';
 
   const _bitcoin = bitcoin(balance, 'satoshi').to('BTC').toString();
-
+  console.log(_bitcoin);
   let _bit = balance * 0.00000001;
 
   const getAddress = async () => {
@@ -82,9 +82,9 @@ const Card = () => {
             {balance ? balance : '0'} Sats
           </Text>
           <Text selectable style={styles.btc}>
-            {/* {_bit.toFixed(6) ? _bit.toFixed(6) : '0'} BTC */}
+            {_bit.toFixed(6) ? _bit.toFixed(6) : '0'} BTC
             {/* {_bitcoin} BTC */}
-            {bitcoin(balance, 'satoshi').to('BTC').toString()}
+            {/* {bitcoin(balance, 'satoshi').to('BTC').toString()} */}
           </Text>
         </View>
         <View style={{top: 20, marginHorizontal: 20}}>
@@ -117,18 +117,13 @@ const HomeScreen = ({route}) => {
 
   useEffect(() => {
     createWallet();
-    setLoading(false);
   }, []);
 
   return (
     <SafeAreaView style={styles.container}>
-      {loading ? (
-        <ActivityIndicator size="large" />
-      ) : (
-        <View style={styles.cardCon}>
-          <Card />
-        </View>
-      )}
+      <View style={styles.cardCon}>
+        <Card />
+      </View>
       <View style={{flex: 1, margin: 10}}>
         <WalletCategory />
       </View>
@@ -157,8 +152,8 @@ const styles = StyleSheet.create({
     elevation: 10,
     resizeMode: 'contain',
     borderRadius: 20,
-    borderWidth: 7,
-    borderColor: COLORS.white,
+    borderWidth: 1.0,
+    borderColor: COLORS.tabBarActiveTintColor,
     marginHorizontal: 25,
   },
 
