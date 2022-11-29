@@ -30,10 +30,10 @@ Run Project Locally:
 This project will be updated in the feature
 
 <p float="left">
-  <img src="screenshots/Image1.png?raw=true" width="360" />
-  <img src="screenshots/Image2.png?raw=true" width="360" />
-   <img src="screenshots/Imag3.png?raw=true" width="360" />
-  <img src="screenshots/Image4.png?raw=true" width="360" />
-   <img src="screenshots/Image5.png?raw=true" width="360" />
-  <img src="screenshots/Image6.png?raw=true" width="360" />
+  <img src="screenshots/Image1.png?raw=true" width="200" />
+  <img src="screenshots/Image2.png?raw=true" width="200" />
+   <img src="screenshots/Imag3.png?raw=true" width="200" />
+  <img src="screenshots/Image4.png?raw=true" width="200" />
+   <img src="screenshots/Image5.png?raw=true" width="200" />
+  <img src="screenshots/Image6.png?raw=true" width="200" />
 </p>
