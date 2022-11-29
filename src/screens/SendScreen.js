@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     borderColor: COLORS.tabBarActiveTintColor,
     borderWidth: 2,
     borderRadius: 10,
-    marginHorizontal: 10,
+    marginHorizontal: 20,
   },
 
   input: {
