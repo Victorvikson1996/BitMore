@@ -21,9 +21,11 @@ Link: `https://bitcoindevkit.org/tutorials/exploring_bdk_rn/`
 
 Fork Repo: git clone https://github.com/Victorvikson1996/BitMore.git
 
-Run Project Locally: `cd ios `
-1 : `pod install`
-2: `npx react-native run-ios`
+Run Project Locally:
+
+- `cd ios `
+- `pod install`
+- `npx react-native run-ios`
 
 This project will be updated in the feature
 
